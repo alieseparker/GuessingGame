@@ -3,21 +3,20 @@
 var ranNum = (Math.floor(Math.random()*100)) +1; //create a random number 1-100
 var count = 0;
 var guessNum = 0;
+var isPlaying = true;
 //alert (ranNum);  //use to test if loop works.
-function isSame() {
-  return(guessNum==ranNum){
-};
 
-while(count < 5){
+while(isPlaying && count <=5){
 	guessNum=0;
 	guessNum = prompt("Guess a number between 1 and 100 you have "+ (5-count) +" guesses left.");
-	if(isSame()){ //if guessed correctly exit loop
-		break;
+	
+	if(guessNum==ranNum){ //if guessed correctly exit loop
+		isPlaying=false;
 	};
 	count++;
 };
 
-if(isSame()) { //writes results
+if(guessNum==ranNum) { //writes results
 	alert("Congratulations! You guessed correctly in only "+(count)+" guesses.");
 }
 else {
